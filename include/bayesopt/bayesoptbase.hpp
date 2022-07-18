@@ -129,7 +129,7 @@ namespace bayesopt {
      * \brief Execute ONE step the optimization process of the
      * function defined in evaluateSample.  
      */  
-    void stepOptimization();
+    vectord stepOptimization(double* y_cur = nullptr);
 
     /** Initialize the optimization process.  */
     void initializeOptimization();

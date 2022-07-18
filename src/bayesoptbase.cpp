@@ -104,7 +104,7 @@ namespace bayesopt
   } // optimize
 
 
-  void BayesOptBase::stepOptimization()
+  vectord BayesOptBase::stepOptimization(double* y_cur)
   {
     // Find what is the next point.
     vectord xNext = nextPoint(); 
@@ -160,6 +160,12 @@ namespace bayesopt
         saveOptimization(state);
         state.saveToFile(mParameters.save_filename);
       }
+
+    // added by bh.kim
+    if (y_cur != nullptr) {
+      *y_cur = yNext;
+    }
+    return remapPoint(xNext);
   }
   
 
